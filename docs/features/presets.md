@@ -49,6 +49,12 @@ This is an important one. Make sure it is enabled for your boot preset, so that 
 When disabled, the segment start and stop LEDs are not included in the preset. This can be useful if you plan to make changes to your segment setup and don't want your presets to always reset it to the point it was when the preset was saved.
 
 *API command*  
+As of version 16.1, there is special handling of API commands for boot presets.
+
+Live Override (`lor`) can reliably be used on the boot preset. This is useful for setups where the primary means of control is from external API - for example HomeKit, Home Assistent or otherwise and you want to have live override set at boot.
+
+For the boot preset, when `lor` is used, `ps` can also be used to load another preset. This is useful for if you just want to set live override and then immediately load another playlist at boot. Example `{ "lor":2,"ps":2 }`.
+
 This accepts any HTTP or JSON API command! (only visible if the current state checkbox is unchecked)  
 It replaces the previous macro functionality.  
 If you know your JSON, you can even create playlists of other presets!
